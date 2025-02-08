@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Linux/configuration/SSH相关配置.md",
+                "file": "操作系统与工具/内网穿透与网络配置/FRP 配置与使用.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "SSH相关配置"
+              "title": "FRP 配置与使用"
             }
           }
         ]
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 245.5
   },
   "right": {
     "id": "4e6579ed72df56f9",
@@ -140,12 +140,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "操作系统与工具/内网穿透与网络配置/FRP 配置与使用.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "大纲"
+              "title": "FRP 配置与使用 的大纲"
             }
           },
           {
@@ -176,17 +177,24 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "078fca711ae823e3",
+  "active": "4f64a5186f063af7",
   "lastOpenFiles": [
+    "网络安全/SSH配置/SSH相关配置.md",
+    "操作系统与工具/内网穿透与网络配置/FRP 配置与使用.md",
+    "操作系统与工具/内网穿透与网络配置",
+    "网络安全/SSH配置/未命名.md",
+    "操作系统与工具",
+    "数据库",
+    "编程语言",
+    "网络安全",
     "欢迎.md",
-    "Linux/configuration/SSH相关配置.md",
     "2025-02-08.md",
-    "dev_tools/Docker/Docker安装配置.md",
+    "开发工具/Docker/Docker安装配置.md",
     "未命名 1.md",
     "未命名.md",
-    "Linux/configuration",
-    "Linux",
-    "dev_tools/Docker",
-    "dev_tools"
+    "网络安全/SSH配置",
+    "操作系统",
+    "开发工具/Docker",
+    "开发工具"
   ]
 }
