@@ -167,7 +167,7 @@ vim /etc/systemd/system/frps.service
 
 写入下面内容
 
-```toml
+```ini
 # 写入下面内容
 [Unit]
 # 服务名称，可自定义
@@ -252,7 +252,7 @@ vim /etc/systemd/system/frpc.service
 
 输入以下内容
 
-```toml
+```ini
 [Unit]
 Description=FRP Client Service
 After=network.target
