@@ -142,7 +142,7 @@ ssh -p 2222 -i ~/.ssh/id_rsa root@192.168.1.100
 
 ### ssh-keygen 命令
 
-`ssh-keygen` 用于创建 SSH 密钥（公钥 + 私钥），然后可以用于免密码登录远程服务器。
+`ssh-keygen` 主要用于创建 SSH 密钥（公钥 + 私钥），然后可以用于免密码登录远程服务器。
 
 （1）生成 SSH 密钥对
 
@@ -172,6 +172,172 @@ Enter same passphrase again:
 ls -l ~/.ssh/
 cat ~/.ssh/id_rsa.pub  # 查看公钥
 ```
+
+#### 常用参数
+
+**指定密钥类型（`-t`）**
+
+```bash
+ssh-keygen -t rsa      # 生成 RSA 密钥（默认 3072 位）
+ssh-keygen -t rsa -b 4096  # 生成 4096 位的 RSA 密钥
+ssh-keygen -t ecdsa    # 生成 ECDSA 密钥（默认 256 位）
+ssh-keygen -t ed25519  # 生成 Ed25519 密钥（推荐，安全性高）
+```
+
+常见的密钥类型：
+
+- `rsa`：最常见，但密钥长度要足够大（推荐 4096 位）。
+- `ecdsa`：基于椭圆曲线，比 RSA 更短但同样安全（推荐 `256` 或 `384`）。
+- `ed25519`：更快、更安全（推荐）。
+- `dsa`：已废弃，不推荐使用。
+
+---
+
+**指定密钥位数（`-b`）**
+
+```bash
+ssh-keygen -t rsa -b 4096  # 指定 RSA 密钥长度为 4096
+ssh-keygen -t ecdsa -b 521  # 指定 ECDSA 密钥长度为 521
+```
+
+- **RSA**：建议 `2048` 及以上，推荐 `4096`。
+- **ECDSA**：支持 `256`、`384` 和 `521`。
+- **Ed25519**：固定长度，不需要 `-b` 选项。
+
+---
+
+**指定输出文件（`-f`）**
+
+```bash
+ssh-keygen -t rsa -f ~/.ssh/my_key
+```
+
+- 生成的密钥文件：
+  - 私钥：`~/.ssh/my_key`
+  - 公钥：`~/.ssh/my_key.pub`
+
+---
+
+**添加密钥注释（`-C`）**
+
+```bash
+ssh-keygen -t rsa -C "your_email@example.com"
+```
+
+- 这通常用于标识密钥，例如 GitHub 认证时，可以添加邮箱作为注释。
+
+---
+
+**设置密码保护（`-N`）**
+
+```bash
+ssh-keygen -t rsa -N "mypassword"
+```
+
+- 如果不想输入密码，可使用 `-N ""`（不推荐，降低安全性）。
+
+---
+
+**指定哈希算法（`-E`）**
+
+```bash
+ssh-keygen -l -E sha256 -f ~/.ssh/id_rsa.pub
+```
+
+- `sha256` 是现代推荐的哈希算法。
+
+---
+
+#### 管理密钥
+
+**查看密钥指纹（`-l`）**
+
+```bash
+ssh-keygen -l -f ~/.ssh/id_rsa.pub
+```
+
+- 显示密钥的指纹（默认 `SHA256` 格式）。
+
+---
+
+**变更密钥密码（`-p`）**
+
+```bash
+ssh-keygen -p -f ~/.ssh/id_rsa
+```
+
+- 允许更改私钥的密码。
+
+---
+
+**转换密钥格式（`-m`）**
+
+```bash
+ssh-keygen -m PEM -f ~/.ssh/id_rsa
+```
+
+- 将私钥转换为 `PEM` 格式，适用于 OpenSSL。
+
+---
+
+**删除指定密钥（`-R`）**
+
+```bash
+`ssh-keygen -R example.com / IP_ADDRESS`
+```
+
+- 这个命令会从 `~/.ssh/known_hosts` 文件中删除 `example.com` 或指定`IP_ADDRESS` 相关的所有条目。
+
+---
+
+**查找主机密钥（`-F`）**
+
+```bash
+ssh-keygen -F hostname
+```
+
+在  `known_hosts`  文件中查找指定主机的公钥记录。
+
+---
+
+#### 高级用法
+
+##### 生成符合 FIDO U2F 标准的密钥
+
+使用 `-t ecdsa-sk` 或 -t ed25519-sk`参数，如果有安全密钥（如 YubiKey），可以生成硬件绑定的密钥：
+
+```bash
+ssh-keygen -t ed25519-sk -f ~/.ssh/id_ed25519_sk
+```
+
+- `ecdsa-sk`：基于 ECDSA 的 FIDO2 认证密钥。
+- `ed25519-sk`：基于 Ed25519 的 FIDO2 认证密钥（推荐）。
+
+---
+
+##### 生成多主机密钥
+
+使用 `-h` 参数
+
+```bash
+ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -h
+```
+
+- 适用于 SSH 服务器的 `HostKey` 生成。
+
+---
+
+##### 从私钥提取公钥
+
+使用 `-y` 参数
+
+```bash
+ssh-keygen -y -f ~/.ssh/id_rsa > ~/.ssh/id_rsa.pub
+```
+
+- 当丢失 `.pub` 文件时，可以从私钥重新生成公钥。
+
+---
 
 ### ssh-copy-id 命令
 

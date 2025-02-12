@@ -1,5 +1,3 @@
-好的，以下是 **FRP 配置与使用** 笔记的大纲，供你参考：
-
 ## 引言
 
 ### 什么是内网穿透
@@ -134,15 +132,15 @@ log.maxDays = 3
 log.disablePrintColor = false
 
 # 心跳超时时间 默认 90 秒如果设为负数 心跳检测会被禁用
-transport.heartbeatTimeout = 90
+# transport.heartbeatTimeout = 90
 
 # 每个代理最大连接池数量 默认是 5
-transport.maxPoolCount = 5
+# transport.maxPoolCount = 5
 ```
 
 上面写了这么多，其实最简单的就是只传入个`bindPort = 7000`就足够了。
 
-> ⚠ 必须把服务端的 7000 端口放开，并且如果 Dashboard 面板也需要把 7500 放开。
+> ⚠ 必须把服务端的 7000 端口放开，并且如果 Dashboard 面板也需要把 7500 放开。heartbeatTimeout 建议不要开启，测试时候因为开启心跳检测，导致一直检测超时，而超时后 SSH 连接也会自动断开，除非自己会配置 NAT
 
 #### 服务端运行
 
