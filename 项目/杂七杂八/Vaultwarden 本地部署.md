@@ -170,46 +170,59 @@ sudo systemctl reload nginx
 
 ## 具体使用步骤
 
-### 通过浏览器访问 Vaultwarden
+### 浏览器访问
 
-在浏览器中访问 `http://your.domain`（如果使用了 HTTPS，使用 `https://your-domain.com`）。你将看到 Vaultwarden 的登录页面。使用默认的用户名和密码（如果没有设置，系统会引导你设置管理员帐户）来登录。
+在浏览器中访问 `https://your.domain`（不要使用 HTTP ，会有问题）。将看到 Vaultwarden 的登录页面。如果环境变量没有设置禁止注册就可以看到有注册按钮，如果设置了禁止注册就把设置 ADMIN_TOKEN 来开启后台管理页面。
 
-#### 7. **配置和管理 Vaultwarden**
+![登录页面](http://cache.jimlee.top/post_images/vaultwarden_local_deployment_1.png)
 
-- **设置管理员帐户**：首次登录后，你可以通过管理员令牌设置管理员账户。可以在 Web 界面上管理用户、密码存储、认证设置等。
-- **启用多因素认证（2FA）**：为了增强安全性，建议启用多因素认证（2FA）。
+### 注册登录
 
-这样，Vaultwarden 就在你的本地环境中成功部署并运行了。
+**如果是没用禁止注册就注册完登录**
 
----
+![注册页面](http://cache.jimlee.top/post_images/vaultwarden_local_deployment_2.png)
 
-这就是 Vaultwarden 本地部署的基本步骤。如果你遇到任何问题，或需要进一步的配置（如备份、日志管理等），可以继续扩展配置！
+**如果禁止注册并且设置了 ADMIN_TOKEN 就进入后台邀请注册（邀请注册必须开启邮箱功能和设置域名！！！）**
+输入 `https://your.domain/admin` 即可进入
 
--
-- 配置 Docker Compose 文件
-  - 设置环境变量（如数据库连接、端口等）
-  - 配置数据持久化
-- 启动 Vaultwarden 服务
+> 注意后台管理页面没有中文，只有英文，英语不太行就还是注册登录吧
 
-8. **配置与访问**
+![进入后台页面](http://cache.jimlee.top/post_images/vaultwarden_local_deployment_4.png)
 
-- 配置反向代理（如 Nginx）
-- 配置 SSL 证书（如使用 Let's Encrypt）
-- 通过浏览器访问 Vaultwarden
+输入 token 后便可进入后台管理页面
 
-1. **安全性考虑**
+![后台管理页面](http://cache.jimlee.top/post_images/vaultwarden_local_deployment_5.png)
 
-- 配置防火墙
-- 设置用户认证和权限管理
-- 数据加密与备份
+然后点击 user 进入用户管理于邀请注册
 
-2. **常见问题与排查**
+![用户管理页面](http://cache.jimlee.top/post_images/vaultwarden_local_deployment_6.png)
 
-- Vaultwarden 启动失败的常见原因
-- 数据库连接问题
-- 容器资源限制问题
+### 进入首页进行使用
 
-1. **总结**
+上面注册登陆后就进入了首页，这里只简单介绍一下常规登录项目，别的什么和进阶功能自己去官网吧，如果要扯就太多了。
 
-- Vaultwarden 的优点和适用场景
-- 提示与建议
+![首页](http://cache.jimlee.top/post_images/vaultwarden_local_deployment_3.png)
+
+![新建登录项目](http://cache.jimlee.top/post_images/vaultwarden_local_deployment_7.png)
+
+### 配合各种客户端
+
+如果只是上面的这些有人会说了，这特么不就是个常规密码存储么，用记事本再用 git 也能做啊，那就大错特错了，作为 Bitwarden 的拓展项目来说，Bitwarden 所有的客户端功能，一个不少，web 端比如 chrome 就在浏览器拓展插件搜索 `Bitwarden 密码管理器`[chrome 插件地址](https://chromewebstore.google.com/detail/bitwarden-password-manage/nngceckbapebfimnlniiiahkandclblb?hl=zh-CN&utm_source=ext_sidebar)，手机 iOS 或者谷歌商店搜索 Bitwarden ，PC 端当然也有，(Bitwarden 官网下载)[https://bitwarden.com/download/]。
+
+这里主要就拿 chrome 插件来介绍一下如何集成自建地址使用。下载好并启用插件后，点击拓展程序进行配置
+
+![自托管地址](http://cache.jimlee.top/post_images/vaultwarden_local_deployment_8.png)
+
+然后保存完个人地址后回到首页进行登录刚才注册的账号
+
+![插件页面](http://cache.jimlee.top/post_images/vaultwarden_local_deployment_9.png)
+
+然后就可以看到自己的各种项目信息并且也可以直接进行新增项目等操作
+
+![自托管地址](http://cache.jimlee.top/post_images/vaultwarden_local_deployment_10.png)
+
+然后我们可以找一个自己保存了 url 和账号密码的网址进行测试
+
+![一键填充密码](http://cache.jimlee.top/post_images/vaultwarden_local_deployment_11.png)
+
+> 注意有时候在不同客户端新增密码后可能不会自动刷新，需要重新登陆一下。

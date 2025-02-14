@@ -1,4 +1,6 @@
 {
   "newFileLocation": "current",
-  "showInlineTitle": true
+  "showInlineTitle": true,
+  "autoPairBrackets": true,
+  "showLineNumber": false
 }

@@ -14,8 +14,8 @@
               "type": "markdown",
               "state": {
                 "file": "项目/杂七杂八/Vaultwarden 本地部署.md",
-                "mode": "preview",
-                "source": false
+                "mode": "source",
+                "source": true
               },
               "icon": "lucide-file",
               "title": "Vaultwarden 本地部署"
@@ -74,7 +74,8 @@
               "title": "书签"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -179,8 +180,9 @@
   },
   "active": "4f64a5186f063af7",
   "lastOpenFiles": [
-    "网络安全/SSH配置/SSH相关配置.md",
+    "2025-02-13.md",
     "项目/杂七杂八/Vaultwarden 本地部署.md",
+    "网络安全/SSH配置/SSH相关配置.md",
     "项目/杂七杂八",
     "网络安全/SSH配置/未命名.md",
     "项目",
