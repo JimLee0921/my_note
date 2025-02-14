@@ -207,7 +207,7 @@ sudo systemctl reload nginx
 
 ### 配合各种客户端
 
-如果只是上面的这些有人会说了，这特么不就是个常规密码存储么，用记事本再用 git 也能做啊，那就大错特错了，作为 Bitwarden 的拓展项目来说，Bitwarden 所有的客户端功能，一个不少，web 端比如 chrome 就在浏览器拓展插件搜索 `Bitwarden 密码管理器`[chrome 插件地址](https://chromewebstore.google.com/detail/bitwarden-password-manage/nngceckbapebfimnlniiiahkandclblb?hl=zh-CN&utm_source=ext_sidebar)，手机 iOS 或者谷歌商店搜索 Bitwarden ，PC 端当然也有，(Bitwarden 官网下载)[https://bitwarden.com/download/]。
+如果只是上面的这些有人会说了，这特么不就是个常规密码存储么，用记事本再用 git 也能做啊，那就大错特错了，作为 Bitwarden 的拓展项目来说，Bitwarden 所有的客户端功能，一个不少，web 端比如 chrome 就在浏览器拓展插件搜索 `Bitwarden 密码管理器`[chrome 插件地址](https://chromewebstore.google.com/detail/bitwarden-password-manage/nngceckbapebfimnlniiiahkandclblb?hl=zh-CN&utm_source=ext_sidebar)，手机 iOS 或者谷歌商店搜索 Bitwarden ，PC 端当然也有，[Bitwarden 官网下载](https://bitwarden.com/download/)。
 
 这里主要就拿 chrome 插件来介绍一下如何集成自建地址使用。下载好并启用插件后，点击拓展程序进行配置
 

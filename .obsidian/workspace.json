@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "项目/杂七杂八/Vaultwarden 本地部署.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
@@ -178,7 +178,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "4f64a5186f063af7",
+  "active": "e6d8d68b80a08dad",
   "lastOpenFiles": [
     "2025-02-13.md",
     "项目/杂七杂八/Vaultwarden 本地部署.md",
